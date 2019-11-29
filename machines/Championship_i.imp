@@ -1,0 +1,35 @@
+/* Championship_i
+ * Author: junho
+ * Creation date: 30/10/2019
+ */
+
+IMPLEMENTATION Championship_i
+REFINES Championship
+
+IMPORTS 
+    Game_editor, Team_position
+
+SEES 
+    Game_ctx, Team_ctx
+    
+INVARIANT
+    // Linking invariant
+    gi_gameResult = gameResult & 
+    ti_points = points &
+    ti_wins = wins &
+    ti_draws = draws &
+    ti_losses = losses &
+    ti_goalsFor = goalsFor &
+    ti_goalsAgainst = goalsAgainst &
+    ti_goalDiff = goalDiff 
+        
+OPERATIONS
+	pos <-- teamPosition(tt) = 
+        pos <-- tp_teamPosition(tt);
+	
+	addNewGame(t1, t2, g1,g2) = 
+        ge_addNewGame(t1,t2,g1, g2);
+
+	editGame(t1, t2, g1,g2) = 
+        ge_editGame(t1,t2,g1, g2)
+ END

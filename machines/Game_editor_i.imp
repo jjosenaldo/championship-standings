@@ -1,0 +1,31 @@
+IMPLEMENTATION
+    Game_editor_i
+
+REFINES
+    Game_editor
+
+SEES
+    Team_ctx, Game_ctx
+
+IMPORTS
+    Game_info, Team_info
+
+OPERATIONS
+    ge_addNewGame(t1,t2,g1,g2) = 
+    BEGIN
+        ti_addNewGame(t1,t2,g1,g2);
+        addResult(t1,t2,g1,g2)
+    END ;
+
+    ge_editGame(t1,t2,g1,g2) = 
+    BEGIN
+        VAR oldG1, oldG2 IN
+            oldG1 <-- getGoals1(t1,t2);
+            oldG2 <-- getGoals2(t1,t2);
+            ti_editGame(t1,t2,g1,g2,oldG1,oldG2)
+        END;
+
+        // Updates the result
+        editResult(t1,t2,g1,g2)
+    END
+END

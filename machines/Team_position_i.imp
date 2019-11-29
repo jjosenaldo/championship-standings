@@ -1,0 +1,44 @@
+IMPLEMENTATION
+    Team_position_i
+
+REFINES
+    Team_position
+
+IMPORTS
+    Team_position_criteria
+
+SEES    
+    Team_info,
+    Team_ctx // a refinement MUST see the machines that the specification sees
+
+OPERATIONS
+    pos <-- tp_teamPosition(tt) = 
+    BEGIN
+        pos := 1;
+        VAR ii, NN IN
+            ii := 0;
+            NN := teamsize;
+
+            WHILE ii < NN DO
+                ii := ii+1;
+                
+                VAR otherTeam IN
+                    otherTeam := teamseq(ii);
+                    VAR betterTeamRes IN 
+                        betterTeamRes <-- isBetterTeam(otherTeam, tt);
+                        IF betterTeamRes = TRUE THEN
+                            pos := pos + 1
+                        END
+                    END
+                END
+            INVARIANT ii <= NN & 
+                pos = 
+                    card({ jj | jj : 1..ii & ti_points(tt) < ti_points(teamseq(jj))}) +
+                    card({ jj | jj : 1..ii & ti_points(tt) = ti_points(teamseq(jj)) & ti_wins(tt)<ti_wins(teamseq(jj))})+
+                    card({ jj | jj : 1..ii & ti_points(tt) = ti_points(teamseq(jj)) & ti_wins(tt)=ti_wins(teamseq(jj)) & ti_goalDiff(tt)<ti_goalDiff(teamseq(jj))})+
+                    card({ jj | jj : 1..ii & ti_points(tt) = ti_points(teamseq(jj)) & ti_wins(tt)=ti_wins(teamseq(jj)) & ti_goalDiff(tt)=ti_goalDiff(teamseq(jj)) & ti_goalsFor(tt)<ti_goalsFor(teamseq(jj))})+1
+            VARIANT NN - ii
+            END
+        END
+    END
+END   

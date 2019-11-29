@@ -1,0 +1,5 @@
+IMPLEMENTATION Game_ctx_i
+REFINES Game_ctx
+VALUES
+    winpts = 3; drawpts = 1
+END

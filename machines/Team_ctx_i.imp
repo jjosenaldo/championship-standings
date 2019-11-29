@@ -1,0 +1,7 @@
+IMPLEMENTATION Team_ctx_i
+REFINES Team_ctx
+VALUES
+    teamsize = 4;
+    TEAM = 1..4;
+    teamseq = {0|->1,1|->1, 2|->2, 3|->3, 4|->4}
+END

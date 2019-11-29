@@ -1,0 +1,141 @@
+IMPLEMENTATION
+    Team_info_i
+
+REFINES
+    Team_info
+
+SEES
+    Team_ctx, Game_ctx
+
+CONCRETE_VARIABLES
+    points_i, wins_i, draws_i, losses_i, goalsFor_i, goalsAgainst_i, goalDiff_i
+
+INVARIANT    
+    // Linking invariant
+    points_i : TEAM --> NAT & points_i = ti_points &
+    wins_i : TEAM --> NAT & wins_i = ti_wins &
+    draws_i : TEAM --> NAT & draws_i = ti_draws &
+    losses_i : TEAM --> NAT & losses_i = ti_losses &
+    goalsFor_i : TEAM --> NAT & goalsFor_i = ti_goalsFor &
+    goalsAgainst_i : TEAM --> NAT & goalsAgainst_i = ti_goalsAgainst &
+    goalDiff_i : TEAM --> INT & goalDiff_i = ti_goalDiff
+
+INITIALISATION
+    points_i := TEAM * {0} ;
+    wins_i := TEAM * {0} ;
+    draws_i := TEAM * {0} ;
+    losses_i := TEAM * {0} ; 
+    goalsFor_i := TEAM * {0} ; 
+    goalsAgainst_i := TEAM * {0} ; 
+    goalDiff_i := TEAM * {0} 
+
+OPERATIONS
+    ti_addNewGame(t1, t2, g1, g2) = 
+    BEGIN
+        IF g1 < g2 THEN 
+            points_i(t2) := points_i(t2) + winpts;
+            wins_i(t2) := wins_i(t2) + 1;
+            losses_i(t1) := losses_i(t1) + 1 
+        ELSIF g1 > g2 THEN 
+            points_i(t1) := points_i(t1) + winpts;
+            wins_i(t1) := wins_i(t1) + 1;
+            losses_i(t2) := losses_i(t2) + 1
+        ELSE 
+            points_i(t1) := points_i(t1)+drawpts;
+            points_i(t2) := points_i(t2)+drawpts;
+            draws_i(t1) := draws_i(t1)+1;
+            draws_i(t2) := draws_i(t2)+1
+        END ;
+        
+        // Adds the goals of each team
+        goalsFor_i(t1) := goalsFor_i(t1)+g1;
+        goalsFor_i(t2) := goalsFor_i(t2)+g2;
+        goalsAgainst_i(t1) := goalsAgainst_i(t1)+g2;
+        goalsAgainst_i(t2) := goalsAgainst_i(t2)+g1;
+        goalDiff_i(t1) := goalDiff_i(t1)+g1-g2;
+        goalDiff_i(t2) := goalDiff_i(t2)+g2-g1
+    END;
+
+    ti_editGame(t1,t2,g1,g2,oldG1,oldG2) = 
+    BEGIN
+        // Updates the goals for/against and the goal difference
+        goalsFor_i(t1) := goalsFor_i(t1)-oldG1+g1;
+        goalsFor_i(t2) := goalsFor_i(t2)-oldG2+g2;
+        goalsAgainst_i(t1) := goalsAgainst_i(t1)-oldG2+g2;
+        goalsAgainst_i(t2) := goalsAgainst_i(t2)-oldG1+g1;
+        goalDiff_i(t1) := goalDiff_i(t1)- (oldG1 - oldG2) + g1 - g2;
+        goalDiff_i(t2) := goalDiff_i(t2)- (oldG2 - oldG1) + g2 - g1;
+
+        // Updates the points/wins/draws/losses of both TEAM
+        IF g1 > g2 THEN
+            IF oldG1 = oldG2 THEN
+                points_i(t1) := points_i(t1)+winpts - drawpts;
+                points_i(t2) := points_i(t2)- drawpts;
+                wins_i(t1) := wins_i(t1)+1;
+                draws_i(t1) := draws_i(t1)-1;
+                draws_i(t2) := draws_i(t2)-1;
+                losses_i(t2) := losses_i(t2)+1
+            ELSIF oldG1 < oldG2 THEN
+                points_i(t1) := points_i(t1)+winpts;
+                points_i(t2) := points_i(t2)-winpts;
+                wins_i(t1) := wins_i(t1)+1;
+                wins_i(t2) := wins_i(t2)-1;
+                losses_i(t1) := losses_i(t1)-1;
+                losses_i(t2) := losses_i(t2)+1
+            END
+        ELSIF g1 < g2 THEN 
+            IF oldG1 = oldG2 THEN
+                points_i(t1) := points_i(t1)- drawpts;
+                points_i(t2) := points_i(t2) +winpts- drawpts;
+                wins_i(t2) := wins_i(t2)+1;
+                draws_i(t1) := draws_i(t1)-1;
+                draws_i(t2) := draws_i(t2)-1;
+                losses_i(t1) := losses_i(t1)+1
+            ELSIF oldG1 > oldG2 THEN
+                points_i(t1) := points_i(t1)-winpts;
+                points_i(t2) := points_i(t2)+winpts;
+                wins_i(t1) := wins_i(t1)-1;
+                wins_i(t2) := wins_i(t2)+1;
+                losses_i(t1) := losses_i(t1)+1;
+                losses_i(t2) := losses_i(t2)-1
+            END
+        ELSE
+            IF oldG1 < oldG2 THEN
+                points_i(t1) := points_i(t1)+ drawpts;
+                points_i(t2) := points_i(t2)- (winpts - drawpts);
+                wins_i(t2) := wins_i(t2)-1;
+                draws_i(t1) := draws_i(t1)+1;
+                draws_i(t2) := draws_i(t2)+1;
+                losses_i(t1) := losses_i(t1)-1 
+            ELSIF oldG1 > oldG2 THEN
+                points_i(t1) := points_i(t1)- (winpts - drawpts);
+                points_i(t2) := points_i(t2)+ drawpts;
+                wins_i(t1) := wins_i(t1)-1;
+                draws_i(t1) := draws_i(t1)+1;
+                draws_i(t2) := draws_i(t2)+1;
+                losses_i(t2) := losses_i(t2)-1
+            END
+        END 
+    END;
+
+    pt <-- getPoints(tt) = 
+        pt := points_i(tt);
+
+    ww <-- getWins(tt) = 
+        ww := wins_i(tt);
+
+    dd <-- getDraws(tt) = 
+        dd := draws_i(tt);
+
+    ll <-- getLosses(tt) = 
+        ll := losses_i(tt);
+
+    gf <-- getGoalsFor(tt) = 
+        gf := goalsFor_i(tt);
+
+    ga <-- getGoalsAgainst(tt) = 
+        ga := goalsAgainst_i(tt);
+
+    gd <-- getGoalDiff(tt) = 
+        gd := goalDiff_i(tt)
+END

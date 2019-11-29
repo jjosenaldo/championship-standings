@@ -1,0 +1,48 @@
+IMPLEMENTATION
+    Game_info_i
+
+SEES
+    Team_ctx
+
+REFINES
+    Game_info
+
+CONCRETE_VARIABLES
+    gameResult1, gameResult2 
+
+INVARIANT
+    gameResult1 : (TEAM*TEAM) --> INT & 
+    gameResult2 : (TEAM*TEAM) --> INT &     
+
+    // Linking invariant
+    !(t1,t2).(
+        t1 : TEAM & t2 : TEAM & t1 /= t2 => (
+            (gameResult1(t1|->t2) = -1 or gameResult2(t1|->t2) = -1) <=> 
+            (t1|->t2 /: dom(gi_gameResult))
+        ) 
+    )
+
+INITIALISATION
+    gameResult1 := (TEAM*TEAM) * {-1};
+    gameResult2 := (TEAM*TEAM) * {-1}
+
+OPERATIONS
+    gg <-- getGoals1(t1,t2) = 
+        gg := gameResult1(t1,t2);
+
+    gg <-- getGoals2(t1,t2) = 
+        gg := gameResult2(t1,t2);
+
+    addResult(t1,t2,g1,g2) = 
+    BEGIN
+        gameResult1(t1|->t2) := g1;
+        gameResult2(t1|->t2) := g2        
+    END;
+
+    editResult (t1,t2,g1,g2) = 
+    BEGIN
+        gameResult1(t1|->t2) := g1;
+        gameResult2(t1|->t2) := g2
+    END
+
+END
