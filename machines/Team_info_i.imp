@@ -118,24 +118,24 @@ OPERATIONS
         END 
     END;
 
-    pt <-- getPoints(tt) = 
+    pt <-- ti_getPoints(tt) = 
         pt := points_i(tt);
 
-    ww <-- getWins(tt) = 
+    ww <-- ti_getWins(tt) = 
         ww := wins_i(tt);
 
-    dd <-- getDraws(tt) = 
+    dd <-- ti_getDraws(tt) = 
         dd := draws_i(tt);
 
-    ll <-- getLosses(tt) = 
+    ll <-- ti_getLosses(tt) = 
         ll := losses_i(tt);
 
-    gf <-- getGoalsFor(tt) = 
+    gf <-- ti_getGoalsFor(tt) = 
         gf := goalsFor_i(tt);
 
-    ga <-- getGoalsAgainst(tt) = 
+    ga <-- ti_getGoalsAgainst(tt) = 
         ga := goalsAgainst_i(tt);
 
-    gd <-- getGoalDiff(tt) = 
+    gd <-- ti_getGoalDiff(tt) = 
         gd := goalDiff_i(tt)
 END

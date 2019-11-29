@@ -14,6 +14,15 @@ INITIALISATION
     gi_gameResult := {}
 
 OPERATIONS
+    g1,g2 <-- gi_getGameResult(t1, t2) = 
+    PRE 
+        t1 : TEAM & t2 : TEAM & t1|->t2 : dom(gi_gameResult)
+    THEN
+        LET res BE res=gi_gameResult(t1|->t2) IN 
+            g1 := prj1(NAT,NAT)(res) || g2 := prj1(NAT,NAT)(res)
+        END
+    END;
+
     gg <-- getGoals1(t1,t2) = 
     PRE
         t1 : TEAM & t2 : TEAM & t1 /= t2

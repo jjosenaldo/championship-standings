@@ -24,6 +24,30 @@ INVARIANT
     ti_goalDiff = goalDiff 
         
 OPERATIONS
+    g1,g2 <-- getGameResult(t1, t2) = 
+        g1,g2 := g1_getGameResult(t1,t2);
+
+    pp <-- getPoints(t1) = 
+        pp := ti_points(t1);
+
+    ww <-- getWins(t1) = 
+        ww := ti_wins(t1);
+
+    dd <-- getDraws(t1) = 
+        dd := ti_draws(t1);
+
+    ll <-- getLosses(t1) = 
+        ll := ti_losses(t1);
+
+    gf <-- getGoalsFor(t1) = 
+        gf := ti_goalsFor(t1);
+
+    ga <-- getGoalsAgainst(t1) = 
+        ga := ti_goalsAgainst(t1);
+
+    gd <-- getGoalDiff(t1) = 
+        gd := ti_goalDiff(t1);
+
 	pos <-- teamPosition(tt) = 
         pos <-- tp_teamPosition(tt);
 	

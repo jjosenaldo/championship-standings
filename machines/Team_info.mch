@@ -112,49 +112,49 @@ OPERATIONS
         END 
     END;
 
-    pt <-- getPoints(tt) = 
+    pt <-- ti_getPoints(tt) = 
     PRE
         tt : TEAM
     THEN
         pt := ti_points(tt)
     END;
 
-    ww <-- getWins(tt) = 
+    ww <-- ti_getWins(tt) = 
     PRE
         tt : TEAM
     THEN
         ww := ti_wins(tt)
     END;
 
-    dd <-- getDraws(tt) = 
+    dd <-- ti_getDraws(tt) = 
     PRE
         tt : TEAM
     THEN
         dd := ti_draws(tt)
     END;
 
-    ll <-- getLosses(tt) = 
+    ll <-- ti_getLosses(tt) = 
     PRE
         tt : TEAM
     THEN
         ll := ti_losses(tt)
     END;
 
-    gf <-- getGoalsFor(tt) = 
+    gf <-- ti_getGoalsFor(tt) = 
     PRE
         tt : TEAM
     THEN
         gf := ti_goalsFor(tt)
     END;
 
-    ga <-- getGoalsAgainst(tt) = 
+    ga <-- ti_getGoalsAgainst(tt) = 
     PRE
         tt : TEAM
     THEN
         ga := ti_goalsAgainst(tt)
     END;
 
-    gd <-- getGoalDiff(tt) = 
+    gd <-- ti_getGoalDiff(tt) = 
     PRE
         tt : TEAM
     THEN

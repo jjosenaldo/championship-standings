@@ -57,6 +57,64 @@ INITIALISATION
     goalDiff := TEAM * {0} 
 
 OPERATIONS
+    g1,g2 <-- getGameResult(t1, t2) = 
+    PRE 
+        t1 : TEAM & t2 : TEAM & t1|->t2 : dom(gameResult)
+    THEN
+        LET res BE res=gameResult(t1|->t2) IN 
+            g1 := prj1(NAT,NAT)(res) || g2 := prj1(NAT,NAT)(res)
+        END
+    END;        
+
+    pp <-- getPoints(t1) = 
+    PRE 
+        t1 : TEAM 
+    THEN 
+        pp := points(t1)
+    END ;
+
+    ww <-- getWins(t1) = 
+    PRE 
+        t1 : TEAM 
+    THEN 
+        ww := wins(t1)
+    END ;
+
+    dd <-- getDraws(t1) = 
+    PRE 
+        t1 : TEAM 
+    THEN 
+        dd := draws(t1)
+    END ;
+
+    ll <-- getLosses(t1) = 
+    PRE 
+        t1 : TEAM 
+    THEN 
+        ll := losses(t1)
+    END ;
+
+    gf <-- getGoalsFor(t1) = 
+    PRE 
+        t1 : TEAM 
+    THEN 
+        gf := goalsFor(t1)
+    END ;
+
+    ga <-- getGoalsAgainst(t1) = 
+    PRE 
+        t1 : TEAM 
+    THEN 
+        ga := goalsAgainst(t1)
+    END ;
+
+    gd <-- getGoalDiff(t1) = 
+    PRE 
+        t1 : TEAM 
+    THEN 
+        gd := goalDiff(t1)
+    END ;
+
     pos <-- teamPosition(tt) = 
     PRE
         tt : TEAM
