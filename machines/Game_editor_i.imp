@@ -11,6 +11,9 @@ IMPORTS
     Game_info, Team_info
 
 OPERATIONS
+    g1,g2 <-- ge_getGameResult(t1,t2) = 
+        g1,g2 <-- gi_getGameResult(t1,t2);
+
     ge_addNewGame(t1,t2,g1,g2) = 
     BEGIN
         ti_addNewGame(t1,t2,g1,g2);

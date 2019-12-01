@@ -2,7 +2,7 @@
 #include <iostream>
 #include <map>
 #include <iomanip>
-
+#include <string>
 #define ID_AJAX 1
 #define ID_CHELSEA 2
 #define ID_LILLE 3
@@ -14,6 +14,19 @@
 #define NAME_VALENCIA "Valencia"
 
 using namespace std;
+
+struct Team{
+    int id;
+    string name;
+    int pos;
+    int pt;
+    int w;
+    int d;
+    int l;
+    int gf;
+    int ga;
+    int gd;
+};
 
 // < position , Team >
 map<int, int> positions;
@@ -57,46 +70,46 @@ int main(){
     positions[posValencia] = ID_VALENCIA;
 
     // Gets points
-    Team_info__getPoints(ID_AJAX, &ptAjax);
-    Team_info__getPoints(ID_CHELSEA, &ptChelsea);
-    Team_info__getPoints(ID_LILLE, &ptLille);
-    Team_info__getPoints(ID_VALENCIA, &ptValencia);
+    Championship__getPoints(ID_AJAX, &ptAjax);
+    Championship__getPoints(ID_CHELSEA, &ptChelsea);
+    Championship__getPoints(ID_LILLE, &ptLille);
+    Championship__getPoints(ID_VALENCIA, &ptValencia);
 
     // Get wins
-    Team_info__getWins(ID_AJAX, &wAjax);
-    Team_info__getWins(ID_CHELSEA, &wChelsea);
-    Team_info__getWins(ID_LILLE, &wLille);
-    Team_info__getWins(ID_VALENCIA, &wValencia);
+    Championship__getWins(ID_AJAX, &wAjax);
+    Championship__getWins(ID_CHELSEA, &wChelsea);
+    Championship__getWins(ID_LILLE, &wLille);
+    Championship__getWins(ID_VALENCIA, &wValencia);
 
     // Get draws
-    Team_info__getDraws(ID_AJAX, &dAjax);
-    Team_info__getDraws(ID_CHELSEA, &dChelsea);
-    Team_info__getDraws(ID_LILLE, &dLille);
-    Team_info__getDraws(ID_VALENCIA, &dValencia);
+    Championship__getDraws(ID_AJAX, &dAjax);
+    Championship__getDraws(ID_CHELSEA, &dChelsea);
+    Championship__getDraws(ID_LILLE, &dLille);
+    Championship__getDraws(ID_VALENCIA, &dValencia);
 
     // Get losses
-    Team_info__getLosses(ID_AJAX, &lAjax);
-    Team_info__getLosses(ID_CHELSEA, &lChelsea);
-    Team_info__getLosses(ID_LILLE, &lLille);
-    Team_info__getLosses(ID_VALENCIA, &lValencia);
+    Championship__getLosses(ID_AJAX, &lAjax);
+    Championship__getLosses(ID_CHELSEA, &lChelsea);
+    Championship__getLosses(ID_LILLE, &lLille);
+    Championship__getLosses(ID_VALENCIA, &lValencia);
 
     // Get goals for
-    Team_info__getGoalsFor(ID_AJAX, &gfAjax);
-    Team_info__getGoalsFor(ID_CHELSEA, &gfChelsea);
-    Team_info__getGoalsFor(ID_LILLE, &gfLille);
-    Team_info__getGoalsFor(ID_VALENCIA, &gfValencia);
+    Championship__getGoalsFor(ID_AJAX, &gfAjax);
+    Championship__getGoalsFor(ID_CHELSEA, &gfChelsea);
+    Championship__getGoalsFor(ID_LILLE, &gfLille);
+    Championship__getGoalsFor(ID_VALENCIA, &gfValencia);
 
     // Get goals against
-    Team_info__getGoalsAgainst(ID_AJAX, &gaAjax);
-    Team_info__getGoalsAgainst(ID_CHELSEA, &gaChelsea);
-    Team_info__getGoalsAgainst(ID_LILLE, &gaLille);
-    Team_info__getGoalsAgainst(ID_VALENCIA, &gaValencia);
+    Championship__getGoalsAgainst(ID_AJAX, &gaAjax);
+    Championship__getGoalsAgainst(ID_CHELSEA, &gaChelsea);
+    Championship__getGoalsAgainst(ID_LILLE, &gaLille);
+    Championship__getGoalsAgainst(ID_VALENCIA, &gaValencia);
 
     // Get goal difference
-    Team_info__getGoalDiff(ID_AJAX, &gdAjax);
-    Team_info__getGoalDiff(ID_CHELSEA, &gdChelsea);
-    Team_info__getGoalDiff(ID_LILLE, &gdLille);
-    Team_info__getGoalDiff(ID_VALENCIA, &gdValencia);
+    Championship__getGoalDiff(ID_AJAX, &gdAjax);
+    Championship__getGoalDiff(ID_CHELSEA, &gdChelsea);
+    Championship__getGoalDiff(ID_LILLE, &gdLille);
+    Championship__getGoalDiff(ID_VALENCIA, &gdValencia);
 
     for(auto it : positions){
         cout << it.first << " ";

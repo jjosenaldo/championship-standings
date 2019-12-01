@@ -26,8 +26,8 @@ void Team_position_criteria__isBetterTeam(Team_ctx__TEAM t1, Team_ctx__TEAM t2, 
         int32_t pt1;
         int32_t pt2;
         
-        Team_info__getPoints(t1, &pt1);
-        Team_info__getPoints(t2, &pt2);
+        Team_info__ti_getPoints(t1, &pt1);
+        Team_info__ti_getPoints(t2, &pt2);
         if((pt1) > (pt2))
         {
             (*tt) = true;
@@ -42,8 +42,8 @@ void Team_position_criteria__isBetterTeam(Team_ctx__TEAM t1, Team_ctx__TEAM t2, 
                 int32_t ww1;
                 int32_t ww2;
                 
-                Team_info__getWins(t1, &ww1);
-                Team_info__getWins(t2, &ww2);
+                Team_info__ti_getWins(t1, &ww1);
+                Team_info__ti_getWins(t2, &ww2);
                 if((ww1) > (ww2))
                 {
                     (*tt) = true;
@@ -58,8 +58,8 @@ void Team_position_criteria__isBetterTeam(Team_ctx__TEAM t1, Team_ctx__TEAM t2, 
                         int32_t gd1;
                         int32_t gd2;
                         
-                        Team_info__getGoalDiff(t1, &gd1);
-                        Team_info__getGoalDiff(t2, &gd2);
+                        Team_info__ti_getGoalDiff(t1, &gd1);
+                        Team_info__ti_getGoalDiff(t2, &gd2);
                         if((gd1) > (gd2))
                         {
                             (*tt) = true;
@@ -74,8 +74,8 @@ void Team_position_criteria__isBetterTeam(Team_ctx__TEAM t1, Team_ctx__TEAM t2, 
                                 int32_t gf1;
                                 int32_t gf2;
                                 
-                                Team_info__getGoalsFor(t1, &gf1);
-                                Team_info__getGoalsFor(t2, &gf2);
+                                Team_info__ti_getGoalsFor(t1, &gf1);
+                                Team_info__ti_getGoalsFor(t2, &gf2);
                                 if((gf1) > (gf2))
                                 {
                                     (*tt) = true;

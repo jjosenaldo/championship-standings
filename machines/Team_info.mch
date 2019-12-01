@@ -49,7 +49,7 @@ OPERATIONS
         ELSE 
             ti_points := ti_points <+ {t1 |-> ti_points(t1)+drawpts,t2 |-> ti_points(t2)+1} || 
             ti_draws := ti_draws <+ {t1 |-> ti_draws(t1)+drawpts,t2 |-> ti_draws(t2)+1}
-        END END ||
+        END ||
         
         // Adds the goals of each team
         ti_goalsFor := ti_goalsFor <+ {t1 |-> ti_goalsFor(t1)+g1,

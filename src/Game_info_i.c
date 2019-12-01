@@ -36,6 +36,12 @@ void Game_info__INITIALISATION(void)
 
 /* Clause OPERATIONS */
 
+void Game_info__gi_getGameResult(Team_ctx__TEAM t1, Team_ctx__TEAM t2, int32_t *g1, int32_t *g2)
+{
+    (*g1) = Game_info__gameResult1[t1][t2];
+    (*g2) = Game_info__gameResult2[t1][t2];
+}
+
 void Game_info__getGoals1(Team_ctx__TEAM t1, Team_ctx__TEAM t2, int32_t *gg)
 {
     (*gg) = Game_info__gameResult1[t1][t2];

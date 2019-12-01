@@ -30,6 +30,15 @@ INVARIANT
     !(tt).(tt : TEAM => ti_wins(tt)+ti_draws(tt)+ti_losses(tt) = card({game | game:dom(gi_gameResult) & (prj1(TEAM,TEAM)(game)=tt or prj2(TEAM,TEAM)(game)=tt)}))
 
 OPERATIONS
+    g1,g2 <-- ge_getGameResult(t1, t2) = 
+    PRE 
+        t1 : TEAM & t2 : TEAM & t1|->t2 : dom(gi_gameResult)
+    THEN
+        LET xx BE xx = gi_gameResult(t1|->t2) IN 
+            g1 := prj1(NAT,NAT)(xx) || g2 := prj2(NAT,NAT)(xx)
+        END
+    END;
+
     ge_addNewGame(t1, t2, g1, g2) = 
     PRE
         t1 : TEAM & t2 : TEAM & t1 /= t2 & g1 : NAT & g2 : NAT & not ( t1|->t2 : dom(gi_gameResult) ) 

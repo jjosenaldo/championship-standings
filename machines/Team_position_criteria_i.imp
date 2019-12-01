@@ -11,8 +11,8 @@ OPERATIONS
     tt <-- isBetterTeam(t1,t2) = 
     BEGIN
         VAR pt1, pt2 IN
-            pt1 <-- getPoints(t1);
-            pt2 <-- getPoints(t2);
+            pt1 <-- ti_getPoints(t1);
+            pt2 <-- ti_getPoints(t2);
 
             IF pt1 > pt2 THEN  
                 tt := TRUE
@@ -20,24 +20,24 @@ OPERATIONS
                 tt := FALSE
             ELSE
                 VAR ww1, ww2 IN
-                    ww1 <-- getWins(t1);
-                    ww2 <-- getWins(t2);                    
+                    ww1 <-- ti_getWins(t1);
+                    ww2 <-- ti_getWins(t2);                    
                     IF ww1 > ww2 THEN
                         tt := TRUE
                     ELSIF ww1 < ww2 THEN
                         tt := FALSE
                     ELSE
                         VAR gd1, gd2 IN
-                            gd1 <-- getGoalDiff(t1);
-                            gd2 <-- getGoalDiff(t2);                    
+                            gd1 <-- ti_getGoalDiff(t1);
+                            gd2 <-- ti_getGoalDiff(t2);                    
                             IF gd1 > gd2 THEN
                                 tt := TRUE
                             ELSIF gd1 < gd2 THEN
                                 tt := FALSE
                             ELSE
                                 VAR gf1, gf2 IN 
-                                    gf1 <-- getGoalsFor(t1);
-                                    gf2 <-- getGoalsFor(t2);
+                                    gf1 <-- ti_getGoalsFor(t1);
+                                    gf2 <-- ti_getGoalsFor(t2);
                                     
                                     IF gf1 > gf2 THEN
                                         tt := TRUE

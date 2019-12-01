@@ -146,7 +146,7 @@ OPERATIONS
         ELSE 
             points := points <+ {t1 |-> points(t1)+drawpts,t2 |-> points(t2)+drawpts} || 
             draws := draws <+ {t1 |-> draws(t1)+1,t2 |-> draws(t2)+1}
-        END END ||
+        END ||
         
         // Adds the goals of each team
         goalsFor := goalsFor <+ {t1 |-> goalsFor(t1)+g1,

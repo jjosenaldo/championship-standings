@@ -158,37 +158,37 @@ void Team_info__ti_editGame(Team_ctx__TEAM t1, Team_ctx__TEAM t2, int32_t g1, in
     }
 }
 
-void Team_info__getPoints(Team_ctx__TEAM tt, int32_t *pt)
+void Team_info__ti_getPoints(Team_ctx__TEAM tt, int32_t *pt)
 {
     (*pt) = Team_info__points_i[tt];
 }
 
-void Team_info__getWins(Team_ctx__TEAM tt, int32_t *ww)
+void Team_info__ti_getWins(Team_ctx__TEAM tt, int32_t *ww)
 {
     (*ww) = Team_info__wins_i[tt];
 }
 
-void Team_info__getDraws(Team_ctx__TEAM tt, int32_t *dd)
+void Team_info__ti_getDraws(Team_ctx__TEAM tt, int32_t *dd)
 {
     (*dd) = Team_info__draws_i[tt];
 }
 
-void Team_info__getLosses(Team_ctx__TEAM tt, int32_t *ll)
+void Team_info__ti_getLosses(Team_ctx__TEAM tt, int32_t *ll)
 {
     (*ll) = Team_info__losses_i[tt];
 }
 
-void Team_info__getGoalsFor(Team_ctx__TEAM tt, int32_t *gf)
+void Team_info__ti_getGoalsFor(Team_ctx__TEAM tt, int32_t *gf)
 {
     (*gf) = Team_info__goalsFor_i[tt];
 }
 
-void Team_info__getGoalsAgainst(Team_ctx__TEAM tt, int32_t *ga)
+void Team_info__ti_getGoalsAgainst(Team_ctx__TEAM tt, int32_t *ga)
 {
     (*ga) = Team_info__goalsAgainst_i[tt];
 }
 
-void Team_info__getGoalDiff(Team_ctx__TEAM tt, int32_t *gd)
+void Team_info__ti_getGoalDiff(Team_ctx__TEAM tt, int32_t *gd)
 {
     (*gd) = Team_info__goalDiff_i[tt];
 }

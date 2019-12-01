@@ -23,6 +23,7 @@ extern void Game_info__INITIALISATION(void);
 
 /* Clause OPERATIONS */
 
+extern void Game_info__gi_getGameResult(Team_ctx__TEAM t1, Team_ctx__TEAM t2, int32_t *g1, int32_t *g2);
 extern void Game_info__getGoals1(Team_ctx__TEAM t1, Team_ctx__TEAM t2, int32_t *gg);
 extern void Game_info__getGoals2(Team_ctx__TEAM t1, Team_ctx__TEAM t2, int32_t *gg);
 extern void Game_info__addResult(Team_ctx__TEAM t1, Team_ctx__TEAM t2, int32_t g1, int32_t g2);

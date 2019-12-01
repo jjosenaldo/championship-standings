@@ -26,6 +26,11 @@ void Game_editor__INITIALISATION(void)
 
 /* Clause OPERATIONS */
 
+void Game_editor__ge_getGameResult(Team_ctx__TEAM t1, Team_ctx__TEAM t2, int32_t *g1, int32_t *g2)
+{
+    Game_info__gi_getGameResult(t1, t2, g1, g2);
+}
+
 void Game_editor__ge_addNewGame(Team_ctx__TEAM t1, Team_ctx__TEAM t2, int32_t g1, int32_t g2)
 {
     Team_info__ti_addNewGame(t1, t2, g1, g2);

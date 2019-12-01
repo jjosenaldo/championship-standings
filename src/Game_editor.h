@@ -32,6 +32,7 @@ extern void Game_editor__INITIALISATION(void);
 
 /* Clause OPERATIONS */
 
+extern void Game_editor__ge_getGameResult(Team_ctx__TEAM t1, Team_ctx__TEAM t2, int32_t *g1, int32_t *g2);
 extern void Game_editor__ge_addNewGame(Team_ctx__TEAM t1, Team_ctx__TEAM t2, int32_t g1, int32_t g2);
 extern void Game_editor__ge_editGame(Team_ctx__TEAM t1, Team_ctx__TEAM t2, int32_t g1, int32_t g2);
 

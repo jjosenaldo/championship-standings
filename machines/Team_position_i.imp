@@ -8,10 +8,30 @@ IMPORTS
     Team_position_criteria
 
 SEES    
-    Team_info,
-    Team_ctx // a refinement MUST see the machines that the specification sees
+    Team_ctx,Team_info
 
 OPERATIONS
+  pt <-- tp_getPoints(tt) = 
+      pt <-- ti_getPoints(tt);
+
+  ww <-- tp_getWins(tt) = 
+      ww <-- ti_getWins(tt);
+
+  dd <-- tp_getDraws(tt) = 
+      dd <-- ti_getDraws(tt);
+
+  ll <-- tp_getLosses(tt) = 
+      ll <-- ti_getLosses(tt);
+
+  gf <-- tp_getGoalsFor(tt) = 
+      gf <-- ti_getGoalsFor(tt);
+
+  ga <-- tp_getGoalsAgainst(tt) = 
+      ga <-- ti_getGoalsAgainst(tt);
+
+  gd <-- tp_getGoalDiff(tt) = 
+      gd <-- ti_getGoalDiff(tt);
+
     pos <-- tp_teamPosition(tt) = 
     BEGIN
         pos := 1;

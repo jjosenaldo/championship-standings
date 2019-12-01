@@ -27,7 +27,7 @@ INITIALISATION
     gameResult2 := (TEAM*TEAM) * {-1}
 
 OPERATIONS
-    g1,g2 <-- gi_getResult(t1,t2) = 
+    g1,g2 <-- gi_getGameResult(t1,t2) = 
     BEGIN
         g1 := gameResult1(t1,t2);
         g2 := gameResult2(t1,t2)
