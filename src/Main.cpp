@@ -53,7 +53,7 @@ bool comp(Team& t1, Team& t2){
     if(t1.gd > t2.gd) return false;
     if(t1.gf < t2.gf) return true;
     if(t1.gf > t2.gf) return false;
-    return false;
+    return t1.name < t2.name;
 }
 
 int main(){
