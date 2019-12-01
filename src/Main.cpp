@@ -1,19 +1,9 @@
-#include "Championship.h"
-#include <iostream>
-#include <vector>
-#include <iomanip>
-#include <string>
 #include <algorithm>
-
-#define ID_AJAX 1
-#define ID_CHELSEA 2
-#define ID_LILLE 3
-#define ID_VALENCIA 4
-
-#define NAME_AJAX "Ajax"
-#define NAME_CHELSEA "Chelsea"
-#define NAME_LILLE "Lille"
-#define NAME_VALENCIA "Valencia"
+#include <iomanip>
+#include <iostream>
+#include <string>
+#include <vector>
+#include "Championship.h"
 
 #define ADDGAME(t1,t2,g1,g2) Championship__addNewGame(t1.id, t2.id, g1,g2)
 #define POS(t) Championship__teamPosition(t.id, &t.pos)
@@ -25,7 +15,14 @@
 #define GA(t) Championship__getGoalsAgainst(t.id, &t.ga)
 #define GD(t) Championship__getGoalDiff(t.id, &t.gd)
 
-using namespace std;
+using std::cout;
+using std::endl;
+using std::left;
+using std::right;
+using std::setw;
+using std::sort;
+using std::string;
+using std::vector;
 
 struct Team{
     int id;
