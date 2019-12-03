@@ -2,7 +2,7 @@
 #include "testChampionship.h"
 
 
-TEST_GROUP(ChampionshipTestGroupAddLoss){
+TEST_GROUP(ChampionshipTestGroupAddDrawGetWDL){
     array<Team, 2> teams;
 
     TEST_SETUP(){
@@ -10,7 +10,7 @@ TEST_GROUP(ChampionshipTestGroupAddLoss){
         Team valencia = Team(2, "Valencia");
         teams[0] = ajax;
         teams[1] = valencia;
-        ADDGAME(teams[0], teams[1], 1, 3);
+        ADDGAME(teams[0], teams[1], 2, 2);
         setTeamsInfo();
     }
 
@@ -32,22 +32,22 @@ TEST_GROUP(ChampionshipTestGroupAddLoss){
     }
 };
 
-TEST(ChampionshipTestGroupAddLoss, championshipTestAddLossGetPoints){
-    CHECK_EQUAL(0, teams[0].pt);
-    CHECK_EQUAL(PT_WIN, teams[1].pt);
+TEST(ChampionshipTestGroupAddDrawGetWDL, championshipTestAddDrawGetPoints){
+    CHECK_EQUAL(PT_DRAW, teams[0].pt);
+    CHECK_EQUAL(PT_DRAW, teams[1].pt);
 }
 
-TEST(ChampionshipTestGroupAddLoss, championshipTestAddLossGetWins){
+TEST(ChampionshipTestGroupAddDrawGetWDL, championshipTestAddDrawGetWins){
     CHECK_EQUAL(0, teams[0].w);
-    CHECK_EQUAL(1, teams[1].w);
+    CHECK_EQUAL(0, teams[1].w);
 }
 
-TEST(ChampionshipTestGroupAddLoss, championshipTestAddLossGetDraws){
-    CHECK_EQUAL(0, teams[0].d);
-    CHECK_EQUAL(0, teams[1].d);
+TEST(ChampionshipTestGroupAddDrawGetWDL, championshipTestAddDrawGetDraws){
+    CHECK_EQUAL(1, teams[0].d);
+    CHECK_EQUAL(1, teams[1].d);
 }
 
-TEST(ChampionshipTestGroupAddLoss, championshipTestAddLossGetLosses){
-    CHECK_EQUAL(1, teams[0].l);
+TEST(ChampionshipTestGroupAddDrawGetWDL, championshipTestAddDrawGetLosses){
+    CHECK_EQUAL(0, teams[0].l);
     CHECK_EQUAL(0, teams[1].l);
 }
