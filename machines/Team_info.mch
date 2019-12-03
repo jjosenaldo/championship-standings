@@ -60,6 +60,37 @@ OPERATIONS
             t2 |-> ti_goalDiff(t2)+g2-g1}      
     END;
 
+    ti_removeGame(t1,t2,oldG1, oldG2) = 
+    PRE 
+        t1 : TEAM & t2 : TEAM & oldG1 : NAT & oldG2 : NAT
+    THEN 
+        // Updates the goals for/against and the goal difference
+        ti_goalsFor := ti_goalsFor <+ {t1 |-> ti_goalsFor(t1) - oldG1, 
+            t2 |-> ti_goalsFor(t2) - oldG2} ||
+        ti_goalsAgainst := ti_goalsAgainst <+ {t1 |-> ti_goalsAgainst(t1) - oldG2, 
+            t2 |-> ti_goalsAgainst(t2) - oldG1} ||
+        ti_goalDiff := ti_goalDiff <+ {t1 |-> ti_goalDiff(t1) - (oldG1 - oldG2),
+            t2 |-> ti_goalDiff(t2) - (oldG2 - oldG1) } ||
+
+        // Updates the points/wins/draws/losses of both TEAM
+        // draw
+        IF oldG1 = oldG2 THEN
+            ti_points := ti_points <+ {t1 |-> ti_points(t1) - drawpts, t2 |-> ti_points(t2) - drawpts} ||
+            ti_draws := ti_draws <+ {t1 |-> ti_draws(t1)-1, t2 |-> ti_draws(t2)-1} 
+        // t2 won
+        ELSIF oldG1 < oldG2 THEN
+            ti_points := ti_points <+ {t2 |-> ti_points(t2) - winpts} ||
+            ti_wins := ti_wins <+ {t2 |-> ti_wins(t2)-1} ||
+            ti_losses := ti_losses <+ {t1 |-> ti_losses(t1)-1}
+        // t1 won
+        ELSE 
+            ti_points := ti_points <+ {t1 |-> ti_points(t1) - winpts} ||
+            ti_wins := ti_wins <+ {t1 |-> ti_wins(t1)-1} ||
+            ti_losses := ti_losses <+ {t2 |-> ti_losses(t2)-1}
+        END
+    END;
+
+
     ti_editGame(t1,t2,g1,g2,oldG1,oldG2) = 
     PRE
         t1 : TEAM & t2 : TEAM & g1 : NAT & g2 : NAT & oldG1 : NAT & oldG2 : NAT

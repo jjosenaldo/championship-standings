@@ -55,5 +55,14 @@ OPERATIONS
         // Updates the result
         editResult(t1,t2,g1,g2) ||
         ti_editGame(t1,t2,g1,g2, prj1(NAT,NAT)(gi_gameResult(t1,t2)), prj2(NAT,NAT)(gi_gameResult(t1,t2)))
+    END;
+
+    ge_removeGame(t1,t2) = 
+    PRE 
+        t1 : TEAM & t2 : TEAM & t1|->t2 : dom(gi_gameResult) 
+    THEN 
+        // Removes the result
+        removeResult(t1,t2) ||
+        ti_removeGame(t1,t2,prj1(NAT,NAT)(gi_gameResult(t1,t2)), prj2(NAT,NAT)(gi_gameResult(t1,t2)))
     END
 END

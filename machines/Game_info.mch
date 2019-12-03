@@ -49,5 +49,12 @@ OPERATIONS
         t1 : TEAM & t2 : TEAM & t1|->t2 : dom(gi_gameResult) & g1 : NAT & g2 : NAT
     THEN
         gi_gameResult(t1|->t2) := g1|->g2
+    END;
+
+    removeResult(t1,t2) = 
+    PRE 
+        t1 : TEAM & t2 : TEAM & t1|->t2 : dom(gi_gameResult)
+    THEN 
+        gi_gameResult := {t1|->t2} <<| gi_gameResult
     END
 END

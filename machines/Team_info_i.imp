@@ -56,6 +56,37 @@ OPERATIONS
         goalDiff_i(t2) := goalDiff_i(t2)+g2-g1
     END;
 
+    ti_removeGame(t1, t2, oldG1, oldG2) = 
+    BEGIN 
+        // Updates the goals for/against and the goal difference
+        goalsFor_i(t1) := goalsFor_i(t1)-oldG1;
+        goalsFor_i(t2) := goalsFor_i(t2)-oldG2;
+        goalsAgainst_i(t1) := goalsAgainst_i(t1)-oldG2;
+        goalsAgainst_i(t2) := goalsAgainst_i(t2)-oldG1;
+        goalDiff_i(t1) := goalDiff_i(t1)- (oldG1 - oldG2);
+        goalDiff_i(t2) := goalDiff_i(t2)- (oldG2 - oldG1);    
+
+        // Updates the points/wins/draws/losses of both TEAM
+        // draw
+        IF oldG1 = oldG2 THEN
+            points_i(t1) := points_i(t1) - drawpts;
+            points_i(t2) := points_i(t2)- drawpts;
+            draws_i(t1) := draws_i(t1)-1;
+            draws_i(t2) := draws_i(t2)-1;
+        // t2 won
+        ELSIF oldG1 < oldG2 THEN
+            points_i(t2) := points_i(t2)-winpts;
+            wins_i(t2) := wins_i(t2)-1;
+            losses_i(t1) := losses_i(t1)-1;
+        // t1 won
+        ELSE 
+            points_i(t1) := points_i(t1)-winpts;
+            wins_i(t1) := wins_i(t1)-1;
+            losses_i(t2) := losses_i(t2)-1
+        END    
+
+    END ;
+
     ti_editGame(t1,t2,g1,g2,oldG1,oldG2) = 
     BEGIN
         // Updates the goals for/against and the goal difference

@@ -49,6 +49,12 @@ OPERATIONS
     BEGIN
         gameResult1(t1|->t2) := g1;
         gameResult2(t1|->t2) := g2
+    END;
+
+    removeResult(t1,t2) = 
+    BEGIN 
+        gameResult1 := {t1|->t2 }<<| gameResult1;
+        gameResult2 := {t1|->t2 }<<| gameResult2
     END
 
 END

@@ -28,7 +28,16 @@ OPERATIONS
             ti_editGame(t1,t2,g1,g2,oldG1,oldG2)
         END;
 
-        // Updates the result
         editResult(t1,t2,g1,g2)
+    END
+    
+    ge_removeGame(t1,t2) = 
+    BEGIN
+        VAR oldG1, oldG2 IN
+            oldG1 <-- getGoals1(t1,t2);
+            oldG2 <-- getGoals2(t1,t2);
+            ti_removeGame(t1,t2,oldG1,oldG2)
+        END;
+        removeResult(t1,t2)
     END
 END

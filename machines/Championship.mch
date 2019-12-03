@@ -157,7 +157,40 @@ OPERATIONS
             t2 |-> goalDiff(t2)+g2-g1}
            
     END;
-    
+
+    removeGame(t1, t2) = 
+    PRE 
+        t1 : TEAM & t2 : TEAM & t1|->t2 : dom(gameResult) 
+    THEN 
+        // Removes the result
+        gameResult := {t1|->t2} <<| gameResult ||
+
+        // Updates the goals for/against and the goal difference
+        goalsFor := goalsFor <+ {t1 |-> goalsFor(t1) - prj1(NAT,NAT)(gameResult(t1,t2)), 
+            t2 |-> goalsFor(t2) - prj2(NAT,NAT)(gameResult(t1,t2))} ||
+        goalsAgainst := goalsAgainst <+ {t1 |-> goalsAgainst(t1) - prj2(NAT,NAT)(gameResult(t1,t2)), 
+            t2 |-> goalsAgainst(t2) - prj1(NAT,NAT)(gameResult(t1,t2))} ||
+        goalDiff := goalDiff <+ {t1 |-> goalDiff(t1) - (prj1(NAT,NAT)(gameResult(t1,t2)) - prj2(NAT,NAT)(gameResult(t1,t2))),
+            t2 |-> goalDiff(t2) - (prj2(NAT,NAT)(gameResult(t1,t2)) - prj1(NAT,NAT)(gameResult(t1,t2))) } ||
+
+        // Updates the points/wins/draws/losses of both TEAM
+        // The game was a draw
+        IF prj1(NAT,NAT)(gameResult(t1,t2)) = prj2(NAT,NAT)(gameResult(t1,t2)) THEN
+            points := points <+ {t1 |-> points(t1) - drawpts, t2 |-> points(t2) - drawpts} ||
+            draws := draws <+ {t1 |-> draws(t1)-1, t2 |-> draws(t2)-1} ||
+        // t2 won
+        ELSIF prj1(NAT,NAT)(gameResult(t1,t2)) < prj2(NAT,NAT)(gameResult(t1,t2)) THEN
+            points := points <+ {t2 |-> points(t2) - winpts} ||
+            wins := wins <+ {t2 |-> wins(t2)-1} ||
+            losses(t1) := losses(t1) - 1
+        // t1 won
+        ELSE
+            points := points <+ {t1 |-> points(t1) - winpts} ||
+            wins := wins <+ {t1 |-> wins(t1)-1} ||
+            losses(t2) := losses(t2) - 1
+        END 
+    END ;
+
     editGame(t1, t2, g1,g2) = 
     PRE
         t1 : TEAM & t2 : TEAM & t1|->t2 : dom(gameResult) & 
