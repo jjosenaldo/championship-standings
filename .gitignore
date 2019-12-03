@@ -1,0 +1,8 @@
+# automatically generated folders
+test/gcov
+test/lib
+test/objs
+
+# files
+test/out
+test/out.txt

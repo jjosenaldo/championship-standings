@@ -58,10 +58,10 @@ bool comp(Team& t1, Team& t2){
 
 int main(){
     // Creates teams
-    Team ajax = Team(0, "Ajax");
-    Team valencia = Team(1, "Valencia");
-    Team chelsea = Team(2, "Chelsea");
-    Team lille = Team(3, "Lille");
+    Team ajax = Team(1, "Ajax");
+    Team valencia = Team(2, "Valencia");
+    Team chelsea = Team(3, "Chelsea");
+    Team lille = Team(4, "Lille");
     vector<Team> teams = {ajax,valencia,chelsea,lille};
 
     // Adds games
