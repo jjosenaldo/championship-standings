@@ -1,11 +1,21 @@
+#ifndef TEST_CHAMPIONSHIP_H
+#define TEST_CHAMPIONSHIP_H
+
 #include <array>
 #include <string>
 
 #include "CppUTest/TestHarness.h"
 #include "Championship.h"
 
-#define N 4
+using std::array;
+using std::string;
+
+#define PT_WIN 3
+#define PT_DRAW 1
+
 #define ADDGAME(t1,t2,g1,g2) Championship__addNewGame(t1.id, t2.id, g1,g2)
+#define EDITGAME(t1,t2,g1,g2) Championship__editGame(t1.id, t2.id, g1,g2)
+#define REMOVEGAME(t1,t2) Championship__removeGame(t1.id, t2.id)
 #define POS(t) Championship__teamPosition(t.id, &t.pos)
 #define PTS(t) Championship__getPoints(t.id, &t.pt)
 #define WINS(t) Championship__getWins(t.id, &t.w)
@@ -14,9 +24,6 @@
 #define GF(t) Championship__getGoalsFor(t.id, &t.gf)
 #define GA(t) Championship__getGoalsAgainst(t.id, &t.ga)
 #define GD(t) Championship__getGoalDiff(t.id, &t.gd)
-
-using std::array;
-using std::string;
 
 struct Team{
     int id;
@@ -39,31 +46,4 @@ struct Team{
     Team() : Team(0, ""){}
 };
 
-TEST_GROUP(ChampionshipTestGroup){
-    array<Team, N> teams;
-
-    TEST_SETUP(){
-        Team ajax = Team(1, "Ajax");
-        Team valencia = Team(2, "Valencia");
-        Team chelsea = Team(3, "Chelsea");
-        Team lille = Team(4, "Lille");
-        teams = {ajax, valencia, chelsea, lille};
-    }
-
-    void setTeamsInfo(){
-        for(auto& team : teams){
-            POS(team);
-            PTS(team);
-            WINS(team);
-            DRAWS(team);
-            LOSSES(team);
-            GF(team);
-            GA(team);
-            GD(team);
-        }
-    }
-};
-
-TEST(ChampionshipTestGroup, championshipTestAddWin){
-    
-}
+#endif
