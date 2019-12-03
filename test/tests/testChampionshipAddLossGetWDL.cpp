@@ -16,6 +16,7 @@ TEST_GROUP(ChampionshipTestGroupAddLossGetWDL){
 
     TEST_TEARDOWN(){
         REMOVEGAME(teams[0], teams[1]);
+        setTeamsInfo();
     }
 
     void setTeamsInfo(){
