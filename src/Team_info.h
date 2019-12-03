@@ -25,6 +25,7 @@ extern void Team_info__INITIALISATION(void);
 /* Clause OPERATIONS */
 
 extern void Team_info__ti_addNewGame(Team_ctx__TEAM t1, Team_ctx__TEAM t2, int32_t g1, int32_t g2);
+extern void Team_info__ti_removeGame(Team_ctx__TEAM t1, Team_ctx__TEAM t2, int32_t oldG1, int32_t oldG2);
 extern void Team_info__ti_editGame(Team_ctx__TEAM t1, Team_ctx__TEAM t2, int32_t g1, int32_t g2, int32_t oldG1, int32_t oldG2);
 extern void Team_info__ti_getPoints(Team_ctx__TEAM tt, int32_t *pt);
 extern void Team_info__ti_getWins(Team_ctx__TEAM tt, int32_t *ww);

@@ -53,8 +53,8 @@ OPERATIONS
 
     removeResult(t1,t2) = 
     BEGIN 
-        gameResult1 := {t1|->t2 }<<| gameResult1;
-        gameResult2 := {t1|->t2 }<<| gameResult2
+        gameResult1(t1|->t2) := -1;
+        gameResult2(t1|->t2) := -1
     END
 
 END

@@ -72,12 +72,12 @@ OPERATIONS
             points_i(t1) := points_i(t1) - drawpts;
             points_i(t2) := points_i(t2)- drawpts;
             draws_i(t1) := draws_i(t1)-1;
-            draws_i(t2) := draws_i(t2)-1;
+            draws_i(t2) := draws_i(t2)-1
         // t2 won
         ELSIF oldG1 < oldG2 THEN
             points_i(t2) := points_i(t2)-winpts;
             wins_i(t2) := wins_i(t2)-1;
-            losses_i(t1) := losses_i(t1)-1;
+            losses_i(t1) := losses_i(t1)-1
         // t1 won
         ELSE 
             points_i(t1) := points_i(t1)-winpts;

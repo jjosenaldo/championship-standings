@@ -177,7 +177,7 @@ OPERATIONS
         // The game was a draw
         IF prj1(NAT,NAT)(gameResult(t1,t2)) = prj2(NAT,NAT)(gameResult(t1,t2)) THEN
             points := points <+ {t1 |-> points(t1) - drawpts, t2 |-> points(t2) - drawpts} ||
-            draws := draws <+ {t1 |-> draws(t1)-1, t2 |-> draws(t2)-1} ||
+            draws := draws <+ {t1 |-> draws(t1)-1, t2 |-> draws(t2)-1} 
         // t2 won
         ELSIF prj1(NAT,NAT)(gameResult(t1,t2)) < prj2(NAT,NAT)(gameResult(t1,t2)) THEN
             points := points <+ {t2 |-> points(t2) - winpts} ||

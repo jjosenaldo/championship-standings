@@ -54,8 +54,8 @@ OPERATIONS
         ge_addNewGame(t1,t2,g1, g2);
 
 	editGame(t1, t2, g1,g2) = 
-        ge_editGame(t1,t2,g1, g2)
+        ge_editGame(t1,t2,g1, g2);
 
     removeGame(t1,t2) = 
-        ge_removeGame(t1,t2);
+        ge_removeGame(t1,t2)
  END

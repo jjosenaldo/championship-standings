@@ -64,3 +64,9 @@ void Game_info__editResult(Team_ctx__TEAM t1, Team_ctx__TEAM t2, int32_t g1, int
     Game_info__gameResult2[t1][t2] = g2;
 }
 
+void Game_info__removeResult(Team_ctx__TEAM t1, Team_ctx__TEAM t2)
+{
+    Game_info__gameResult1[t1][t2] = -1;
+    Game_info__gameResult2[t1][t2] = -1;
+}
+

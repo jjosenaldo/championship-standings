@@ -81,3 +81,8 @@ void Championship__editGame(Team_ctx__TEAM t1, Team_ctx__TEAM t2, int32_t g1, in
     Game_editor__ge_editGame(t1, t2, g1, g2);
 }
 
+void Championship__removeGame(Team_ctx__TEAM t1, Team_ctx__TEAM t2)
+{
+    Game_editor__ge_removeGame(t1, t2);
+}
+

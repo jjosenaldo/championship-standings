@@ -29,7 +29,7 @@ OPERATIONS
         END;
 
         editResult(t1,t2,g1,g2)
-    END
+    END;
     
     ge_removeGame(t1,t2) = 
     BEGIN

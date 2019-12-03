@@ -85,6 +85,35 @@ void Team_info__ti_addNewGame(Team_ctx__TEAM t1, Team_ctx__TEAM t2, int32_t g1, 
     Team_info__goalDiff_i[t2] = Team_info__goalDiff_i[t2]+g2-g1;
 }
 
+void Team_info__ti_removeGame(Team_ctx__TEAM t1, Team_ctx__TEAM t2, int32_t oldG1, int32_t oldG2)
+{
+    Team_info__goalsFor_i[t1] = Team_info__goalsFor_i[t1]-oldG1;
+    Team_info__goalsFor_i[t2] = Team_info__goalsFor_i[t2]-oldG2;
+    Team_info__goalsAgainst_i[t1] = Team_info__goalsAgainst_i[t1]-oldG2;
+    Team_info__goalsAgainst_i[t2] = Team_info__goalsAgainst_i[t2]-oldG1;
+    Team_info__goalDiff_i[t1] = Team_info__goalDiff_i[t1]-(oldG1-oldG2);
+    Team_info__goalDiff_i[t2] = Team_info__goalDiff_i[t2]-(oldG2-oldG1);
+    if(oldG1 == oldG2)
+    {
+        Team_info__points_i[t1] = Team_info__points_i[t1]-Game_ctx__drawpts;
+        Team_info__points_i[t2] = Team_info__points_i[t2]-Game_ctx__drawpts;
+        Team_info__draws_i[t1] = Team_info__draws_i[t1]-1;
+        Team_info__draws_i[t2] = Team_info__draws_i[t2]-1;
+    }
+    else if((oldG1) < (oldG2))
+    {
+        Team_info__points_i[t2] = Team_info__points_i[t2]-Game_ctx__winpts;
+        Team_info__wins_i[t2] = Team_info__wins_i[t2]-1;
+        Team_info__losses_i[t1] = Team_info__losses_i[t1]-1;
+    }
+    else
+    {
+        Team_info__points_i[t1] = Team_info__points_i[t1]-Game_ctx__winpts;
+        Team_info__wins_i[t1] = Team_info__wins_i[t1]-1;
+        Team_info__losses_i[t2] = Team_info__losses_i[t2]-1;
+    }
+}
+
 void Team_info__ti_editGame(Team_ctx__TEAM t1, Team_ctx__TEAM t2, int32_t g1, int32_t g2, int32_t oldG1, int32_t oldG2)
 {
     Team_info__goalsFor_i[t1] = Team_info__goalsFor_i[t1]-oldG1+g1;
