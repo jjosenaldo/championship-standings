@@ -5,6 +5,7 @@ TEST_GROUP(ChampionshipTestGroupAddDrawGetWDL){
     array<Team, 2> teams;
 
     TEST_SETUP(){
+        init();
         Team ajax = Team(1, "Ajax");
         Team valencia = Team(2, "Valencia");
         teams[0] = ajax;

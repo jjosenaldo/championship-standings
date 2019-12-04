@@ -123,6 +123,6 @@ TEST(ChampionshipTestGroupTeamPosition, championshipTestGroupTeamPositionSamePoi
 
     setTeamsInfo();
 
-    CHECK_EQUAL(1, teams[1].pos);
+    CHECK_EQUAL(1, teams[2].pos);
     CHECK_EQUAL(2, teams[0].pos);
 }
