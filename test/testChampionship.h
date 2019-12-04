@@ -9,6 +9,7 @@
 
 using std::array;
 using std::string;
+using std::to_string;
 
 #define PT_WIN 3
 #define PT_DRAW 1
@@ -46,6 +47,10 @@ struct Team{
     }
 
     Team() : Team(0, ""){}
+
+    string toString(){
+        return "{" + to_string(pos) + " " + name + " " + to_string(pt) + " " +  to_string(w) + " " + to_string(d) + " " + to_string(l) + " " + to_string(gf) + " " + to_string(ga) + " "  + to_string(gd) + "}";
+    }
 };
 
 #endif
