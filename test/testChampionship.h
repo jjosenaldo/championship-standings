@@ -50,9 +50,15 @@ struct Team{
 
     Team(int id, string name);
 
-    Team() : Team(0, ""){}
+    Team();
 
     string toString();
 };
+
+TEST_BASE(BaseTest)
+{
+    BaseTest();
+};
+
 
 #endif

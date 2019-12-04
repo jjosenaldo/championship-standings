@@ -9,6 +9,8 @@ void init(){
     }    
 }
 
+Team::Team() : Team(0, ""){}
+
 Team::Team(int id, string name){
     this->id = id;
     this->name = name;
@@ -17,4 +19,8 @@ Team::Team(int id, string name){
 
 string Team::toString(){
     return "{" + to_string(pos) + " " + name + " " + to_string(pt) + " " +  to_string(w) + " " + to_string(d) + " " + to_string(l) + " " + to_string(gf) + " " + to_string(ga) + " "  + to_string(gd) + "}";
+}
+
+BaseTest::BaseTest(){
+    init();
 }

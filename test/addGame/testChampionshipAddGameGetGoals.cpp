@@ -3,7 +3,7 @@
 #define G1 5
 #define G2 3
 
-TEST_GROUP(ChampionshipTestGroupAddGameGetGoals){
+TEST_GROUP_BASE(ChampionshipTestGroupAddGameGetGoals, BaseTest){
     array<Team, 2> teams;
 
     TEST_SETUP(){

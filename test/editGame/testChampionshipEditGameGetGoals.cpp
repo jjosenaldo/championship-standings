@@ -8,7 +8,7 @@
 #define NEW_G1 1
 #define NEW_G2 8
 
-TEST_GROUP(ChampionshipTestGroupEditGameGetGoals){
+TEST_GROUP_BASE(ChampionshipTestGroupEditGameGetGoals, BaseTest){
     array<Team, 2> teams;
     int newG1;
     int newG2;

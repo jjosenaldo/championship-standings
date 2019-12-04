@@ -6,10 +6,7 @@ using std::make_pair;
 using std::pair;
 using std::vector;
 
-#include <iostream>
-using std::cout;
-using std::endl;
-TEST_GROUP(ChampionshipTestGroupTeamPosition){
+TEST_GROUP_BASE(ChampionshipTestGroupTeamPosition, BaseTest){
     array<Team, 4> teams;
     vector<pair<long unsigned int,long unsigned int>> games;
 

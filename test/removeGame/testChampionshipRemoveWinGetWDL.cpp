@@ -1,7 +1,7 @@
 #include "testChampionship.h"
 
 
-TEST_GROUP(ChampionshipTestGroupRemoveWinGetWDL){
+TEST_GROUP_BASE(ChampionshipTestGroupRemoveWinGetWDL, BaseTest){
     array<Team, 2> teams;
 
     TEST_SETUP(){

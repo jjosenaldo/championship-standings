@@ -13,7 +13,7 @@
 #define NEW_L_G1 2
 #define NEW_L_G2 7
 
-TEST_GROUP(ChampionshipTestGroupEditGameFromWinGetWDL){
+TEST_GROUP_BASE(ChampionshipTestGroupEditGameFromWinGetWDL, BaseTest){
     array<Team, 2> teams;
     int newG1;
     int newG2;

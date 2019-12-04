@@ -1,11 +1,10 @@
 #include "testChampionship.h"
 
 
-TEST_GROUP(ChampionshipTestGroupAddDrawGetWDL){
+TEST_GROUP_BASE(ChampionshipTestGroupAddDrawGetWDL, BaseTest){
     array<Team, 2> teams;
 
     TEST_SETUP(){
-        init();
         Team ajax = Team(1, "Ajax");
         Team valencia = Team(2, "Valencia");
         teams[0] = ajax;
