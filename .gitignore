@@ -3,6 +3,9 @@ test/gcov
 test/lib
 test/objs
 
+# coverage report
+test/lcov
+
 # files
 test/out
 test/out.txt
