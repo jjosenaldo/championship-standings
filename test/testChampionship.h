@@ -14,6 +14,10 @@ using std::to_string;
 #define PT_WIN 3
 #define PT_DRAW 1
 
+#define INIT INITCHAMP;INITGAMECTX;INITTEAMCTX;
+#define INITCHAMP Championship__INITIALISATION() 
+#define INITGAMECTX Game_ctx__INITIALISATION() 
+#define INITTEAMCTX Team_ctx__INITIALISATION()
 #define ADDGAME(t1,t2,g1,g2) Championship__addNewGame(t1.id, t2.id, g1,g2)
 #define EDITGAME(t1,t2,g1,g2) Championship__editGame(t1.id, t2.id, g1,g2)
 #define REMOVEGAME(t1,t2) Championship__removeGame(t1.id, t2.id)
@@ -28,6 +32,10 @@ using std::to_string;
 #define GA(t) Championship__getGoalsAgainst(t.id, &t.ga)
 #define GD(t) Championship__getGoalDiff(t.id, &t.gd)
 
+extern int initFlag;
+
+void init();
+
 struct Team{
     int id;
     string name;
@@ -40,17 +48,11 @@ struct Team{
     int ga;
     int gd;
 
-    Team(int id, string name){
-        this->id = id;
-        this->name = name;
-        pos = pt = w = d = l = gf = ga = gd = 0;
-    }
+    Team(int id, string name);
 
     Team() : Team(0, ""){}
 
-    string toString(){
-        return "{" + to_string(pos) + " " + name + " " + to_string(pt) + " " +  to_string(w) + " " + to_string(d) + " " + to_string(l) + " " + to_string(gf) + " " + to_string(ga) + " "  + to_string(gd) + "}";
-    }
+    string toString();
 };
 
 #endif
