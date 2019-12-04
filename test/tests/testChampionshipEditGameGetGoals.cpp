@@ -1,4 +1,3 @@
-#include <iostream>
 #include "testChampionship.h"
 
 #define EDITGAMEGOALS(g1,g2) EDITGAME(teams[0], teams[1], g1,g2)

@@ -1,4 +1,3 @@
-#include <iostream>
 #include "testChampionship.h"
 
 #define G1 5
