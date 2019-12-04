@@ -5,9 +5,9 @@ TEST_DIR=$(PROJECT_DIR)/test
 
 # variables defined as described in the MakeileWorker.mk
 CPPUTEST_HOME=/home/satan/Downloads/cpputest
-INCLUDE_DIRS=$(SRC_DIR) $(CPPUTEST_HOME)/include
+INCLUDE_DIRS=$(SRC_DIR) $(CPPUTEST_HOME)/include $(TEST_DIR)
 SRC_DIRS=$(SRC_DIR)
-TEST_SRC_DIRS = $(TEST_DIR) $(TEST_DIR)/tests
+TEST_SRC_DIRS = $(TEST_DIR) $(TEST_DIR)/addGame $(TEST_DIR)/addGame $(TEST_DIR)/editGame $(TEST_DIR)/removeGame $(TEST_DIR)/getGameResult
 TEST_TARGET=out
 CPPUTEST_USE_GCOV=Y
 
