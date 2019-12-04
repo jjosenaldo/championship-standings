@@ -13,7 +13,7 @@
 #define NEW_L_G1 2
 #define NEW_L_G2 7
 
-TEST_GROUP(ChampionshipTestGroupEditGameGetWDL){
+TEST_GROUP(ChampionshipTestGroupEditGameFromWinGetWDL){
     array<Team, 2> teams;
     int newG1;
     int newG2;
@@ -46,84 +46,84 @@ TEST_GROUP(ChampionshipTestGroupEditGameGetWDL){
     }
 };
 
-TEST(ChampionshipTestGroupEditGameGetWDL, championshipTestEditToWinGetPoints){
+TEST(ChampionshipTestGroupEditGameFromWinGetWDL, championshipTestEditFromWinToWinGetPoints){
     EDITGAMEGOALS(NEW_W_G1,NEW_W_G2);
     setTeamsInfo();
     CHECK_EQUAL(PT_WIN, teams[0].pt);
     CHECK_EQUAL(0, teams[1].pt);
 }
 
-TEST(ChampionshipTestGroupEditGameGetWDL, championshipTestEditToWinGetWins){
+TEST(ChampionshipTestGroupEditGameFromWinGetWDL, championshipTestEditFromWinToWinGetWins){
     EDITGAMEGOALS(NEW_W_G1,NEW_W_G2);
     setTeamsInfo();
     CHECK_EQUAL(1, teams[0].w);
     CHECK_EQUAL(0, teams[1].w);
 }
 
-TEST(ChampionshipTestGroupEditGameGetWDL, championshipTestEditToWinGetDraws){
+TEST(ChampionshipTestGroupEditGameFromWinGetWDL, championshipTestEditFromWinToWinGetDraws){
     EDITGAMEGOALS(NEW_W_G1,NEW_W_G2);
     setTeamsInfo();
     CHECK_EQUAL(0, teams[0].d);
     CHECK_EQUAL(0, teams[1].d);
 }
 
-TEST(ChampionshipTestGroupEditGameGetWDL, championshipTestEditToWinGetLosses){
+TEST(ChampionshipTestGroupEditGameFromWinGetWDL, championshipTestEditFromWinToWinGetLosses){
     EDITGAMEGOALS(NEW_W_G1,NEW_W_G2);
     setTeamsInfo();
     CHECK_EQUAL(0, teams[0].l);
     CHECK_EQUAL(1, teams[1].l);
 }
 
-TEST(ChampionshipTestGroupEditGameGetWDL, championshipTestEditToDrawGetPoints){
+TEST(ChampionshipTestGroupEditGameFromWinGetWDL, championshipTestEditFromWinToDrawGetPoints){
     EDITGAMEGOALS(NEW_D_G,NEW_D_G);
     setTeamsInfo();
     CHECK_EQUAL(PT_DRAW, teams[0].pt);
     CHECK_EQUAL(PT_DRAW, teams[1].pt);
 }
 
-TEST(ChampionshipTestGroupEditGameGetWDL, championshipTestEditToDrawGetWins){
+TEST(ChampionshipTestGroupEditGameFromWinGetWDL, championshipTestEditFromWinToDrawGetWins){
     EDITGAMEGOALS(NEW_D_G,NEW_D_G);
     setTeamsInfo();
     CHECK_EQUAL(0, teams[0].w);
     CHECK_EQUAL(0, teams[1].w);
 }
 
-TEST(ChampionshipTestGroupEditGameGetWDL, championshipTestEditToDrawGetDraws){
+TEST(ChampionshipTestGroupEditGameFromWinGetWDL, championshipTestEditFromWinToDrawGetDraws){
     EDITGAMEGOALS(NEW_D_G,NEW_D_G);
     setTeamsInfo();
     CHECK_EQUAL(1, teams[0].d);
     CHECK_EQUAL(1, teams[1].d);
 }
 
-TEST(ChampionshipTestGroupEditGameGetWDL, championshipTestEditToDrawGetLosses){
+TEST(ChampionshipTestGroupEditGameFromWinGetWDL, championshipTestEditFromWinToDrawGetLosses){
     EDITGAMEGOALS(NEW_D_G,NEW_D_G);
     setTeamsInfo();
     CHECK_EQUAL(0, teams[0].l);
     CHECK_EQUAL(0, teams[1].l);
 }
 
-TEST(ChampionshipTestGroupEditGameGetWDL, championshipTestEditToLossGetPoints){
+TEST(ChampionshipTestGroupEditGameFromWinGetWDL, championshipTestEditFromWinToLossGetPoints){
     EDITGAMEGOALS(NEW_L_G1,NEW_L_G2);
     setTeamsInfo();
     CHECK_EQUAL(0, teams[0].pt);
     CHECK_EQUAL(PT_WIN, teams[1].pt);
 }
 
-TEST(ChampionshipTestGroupEditGameGetWDL, championshipTestEditToLossGetWins){
+TEST(ChampionshipTestGroupEditGameFromWinGetWDL, championshipTestEditFromWinToLossGetWins){
     EDITGAMEGOALS(NEW_L_G1,NEW_L_G2);
     setTeamsInfo();
     CHECK_EQUAL(0, teams[0].w);
     CHECK_EQUAL(1, teams[1].w);
 }
 
-TEST(ChampionshipTestGroupEditGameGetWDL, championshipTestEditToLossGetDraws){
+TEST(ChampionshipTestGroupEditGameFromWinGetWDL, championshipTestEditFromWinToLossGetDraws){
     EDITGAMEGOALS(NEW_L_G1,NEW_L_G2);
     setTeamsInfo();
     CHECK_EQUAL(0, teams[0].d);
     CHECK_EQUAL(0, teams[1].d);
 }
 
-TEST(ChampionshipTestGroupEditGameGetWDL, championshipTestEditToLossGetLosses){
+TEST(ChampionshipTestGroupEditGameFromWinGetWDL, championshipTestEditFromWinToLossGetLosses){
     EDITGAMEGOALS(NEW_L_G1,NEW_L_G2);
     setTeamsInfo();
     CHECK_EQUAL(1, teams[0].l);
