@@ -16,6 +16,7 @@ using std::string;
 #define ADDGAME(t1,t2,g1,g2) Championship__addNewGame(t1.id, t2.id, g1,g2)
 #define EDITGAME(t1,t2,g1,g2) Championship__editGame(t1.id, t2.id, g1,g2)
 #define REMOVEGAME(t1,t2) Championship__removeGame(t1.id, t2.id)
+#define GETRESULT(t1,t2,r1,r2) Championship__getGameResult(t1.id, t2.id,&r1,&r2)
 #define POS(t) Championship__teamPosition(t.id, &t.pos)
 #define PTS(t) Championship__getPoints(t.id, &t.pt)
 #define WINS(t) Championship__getWins(t.id, &t.w)
