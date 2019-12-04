@@ -22,7 +22,7 @@ CPPUTEST_WARNINGFLAGS:=$(filter-out -Wshadow,$(CPPUTEST_WARNINGFLAGS)) # shadowi
 # adds some other warnings
 CPPUTEST_WARNINGFLAGS+=-Wunused-result
 
-lcov: FORCE
+lcov: gcov FORCE
 	mkdir -p lcov
 	lcov -o lcov/lcovResults.info -c -d . --rc lcov_branch_coverage=1
 	genhtml -o lcov/htmlResults lcov/lcovResults.info --rc genhtml_branch_coverage=1
